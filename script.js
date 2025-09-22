@@ -3,8 +3,8 @@ function showSection(id) {
   document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
+const API_KEY = "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"; // ← Replace with your actual key
 
-// ===== AI Chatbot =====
 async function askChatbot() {
   const input = document.getElementById("chatInput").value.trim();
   if (!input) return;
@@ -14,13 +14,21 @@ async function askChatbot() {
   document.getElementById("chatInput").value = "";
 
   try {
-    const res = await fetch("http://localhost:5000/api/chatbot", {
+    const response = await fetch("https://api.openai.com/v1/chat/completions", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ message: input })
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": `Bearer ${API_KEY}`
+      },
+      body: JSON.stringify({
+        model: "gpt-4o-mini",
+        messages: [{ role: "user", content: input }]
+      })
     });
-    const data = await res.json();
-    chatBox.innerHTML += `<p><b>Bot:</b> ${data.reply}</p>`;
+
+    const data = await response.json();
+    const reply = data.choices[0].message.content;
+    chatBox.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
     chatBox.scrollTop = chatBox.scrollHeight;
   } catch (err) {
     chatBox.innerHTML += `<p><b>Bot:</b> ❌ Error: ${err.message}</p>`;
