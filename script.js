@@ -3,7 +3,7 @@ function showSection(id) {
   document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
-const API_KEY = "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";
+//const API_KEY =
 async function askChatbot() {
   const input = document.getElementById("chatInput").value;
   if (!input) return;
@@ -89,4 +89,5 @@ function deleteReminder(index) {
 }
 
 window.onload = loadReminders;
+
 
