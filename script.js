@@ -6,7 +6,7 @@ function showSection(id) {
 
 // ===== AI Chatbot (OpenAI API) =====
 // Replace YOUR_OPENAI_KEY with your actual OpenAI API key
-const API_KEY = "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";
+const API_KEY = "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";
 
 async function askChatbot() {
   const input = document.getElementById("chatInput").value.trim();
