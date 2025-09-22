@@ -37,9 +37,8 @@ async function askChatbot() {
   }
 }
 
-// ===== Symptom Checker =====
+// ===== Symptom Checker ====
 const symptomData = {
-  const symptomData = {
   fever: [
     "Flu",
     "Common Cold",
@@ -171,5 +170,6 @@ function deleteReminder(index) {
 }
 
 window.onload = loadReminders;
+
 
 
