@@ -4,8 +4,10 @@ function showSection(id) {
   document.getElementById(id).classList.remove("hidden");
 }
 
-// ===== AI Chatbot (OpenAI API) =====
-const API_KEY = "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"; // Replace with your OpenAI API Key
+// ===== AI Chatbot =====
+// For security, it's recommended to use a backend proxy to call OpenAI API.
+// You can put your key here temporarily for testing.
+const API_KEY = "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";
 
 async function askChatbot() {
   const input = document.getElementById("chatInput").value;
@@ -39,92 +41,18 @@ async function askChatbot() {
 
 // ===== Symptom Checker =====
 const symptomData = {
-  fever: [
-    "Flu",
-    "Common Cold",
-    "Infection",
-    "COVID-19",
-    "Malaria",
-    "Dengue"
-  ],
-  headache: [
-    "Migraine",
-    "Stress",
-    "Dehydration",
-    "Tension Headache",
-    "Sinus Infection"
-  ],
-  cough: [
-    "Bronchitis",
-    "Asthma",
-    "Cold",
-    "Pneumonia",
-    "COVID-19",
-    "Allergies"
-  ],
-  stomachache: [
-    "Indigestion",
-    "Food Poisoning",
-    "Gastritis",
-    "Ulcer",
-    "Appendicitis"
-  ],
-  fatigue: [
-    "Anemia",
-    "Sleep Deprivation",
-    "Hypothyroidism",
-    "Stress",
-    "Diabetes"
-  ],
-  nausea: [
-    "Food Poisoning",
-    "Pregnancy",
-    "Gastritis",
-    "Migraine",
-    "Motion Sickness"
-  ],
-  dizziness: [
-    "Low Blood Pressure",
-    "Dehydration",
-    "Vertigo",
-    "Inner Ear Infection",
-    "Hypoglycemia"
-  ],
-  soreThroat: [
-    "Common Cold",
-    "Strep Throat",
-    "Allergies",
-    "Flu",
-    "Tonsillitis"
-  ],
-  runnyNose: [
-    "Allergies",
-    "Cold",
-    "Flu",
-    "Sinus Infection",
-    "COVID-19"
-  ],
-  chestPain: [
-    "Heartburn",
-    "Angina",
-    "Heart Attack",
-    "Muscle Strain",
-    "Pneumonia"
-  ],
-  shortnessOfBreath: [
-    "Asthma",
-    "COVID-19",
-    "Pneumonia",
-    "COPD",
-    "Heart Disease"
-  ],
-  diarrhea: [
-    "Food Poisoning",
-    "Infection",
-    "IBS",
-    "Lactose Intolerance",
-    "Medication Side Effects"
-  ]
+  fever: ["Flu","Common Cold","Infection","COVID-19","Malaria","Dengue"],
+  headache: ["Migraine","Stress","Dehydration","Tension Headache","Sinus Infection"],
+  cough: ["Bronchitis","Asthma","Cold","Pneumonia","COVID-19","Allergies"],
+  stomachache: ["Indigestion","Food Poisoning","Gastritis","Ulcer","Appendicitis"],
+  fatigue: ["Anemia","Sleep Deprivation","Hypothyroidism","Stress","Diabetes"],
+  nausea: ["Food Poisoning","Pregnancy","Gastritis","Migraine","Motion Sickness"],
+  dizziness: ["Low Blood Pressure","Dehydration","Vertigo","Inner Ear Infection","Hypoglycemia"],
+  soreThroat: ["Common Cold","Strep Throat","Allergies","Flu","Tonsillitis"],
+  runnyNose: ["Allergies","Cold","Flu","Sinus Infection","COVID-19"],
+  chestPain: ["Heartburn","Angina","Heart Attack","Muscle Strain","Pneumonia"],
+  shortnessOfBreath: ["Asthma","COVID-19","Pneumonia","COPD","Heart Disease"],
+  diarrhea: ["Food Poisoning","Infection","IBS","Lactose Intolerance","Medication Side Effects"]
 };
 
 function checkSymptom() {
@@ -134,7 +62,7 @@ function checkSymptom() {
     `<p>Possible conditions: ${result.join(", ")}</p>`;
 }
 
-// ===== Reminders (with localStorage) =====
+// ===== Reminders =====
 function loadReminders() {
   const saved = JSON.parse(localStorage.getItem("reminders")) || [];
   const list = document.getElementById("reminderList");
@@ -166,4 +94,3 @@ function deleteReminder(index) {
 }
 
 window.onload = loadReminders;
-
