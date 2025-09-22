@@ -1,0 +1,128 @@
+/* General */
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  background: linear-gradient(120deg, #6a11cb, #2575fc);
+  color: white;
+  text-align: center;
+}
+
+/* Header */
+header {
+  padding: 20px;
+  background: rgba(0,0,0,0.2);
+}
+header h1 {
+  margin: 0;
+  font-size: 2.5em;
+}
+nav button {
+  margin: 10px;
+  padding: 10px 20px;
+  border: none;
+  background: #ff8c00;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: 0.3s;
+}
+nav button:hover {
+  transform: scale(1.1);
+  background: #ffa733;
+}
+
+/* Sections */
+section {
+  margin: 30px auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 500px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  animation: fadeIn 0.5s;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.hidden {
+  display: none;
+}
+
+/* Chatbot */
+#chatBox {
+  background: #fff;
+  color: #000;
+  padding: 10px;
+  height: 250px;
+  overflow-y: auto;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  text-align: left;
+  scroll-behavior: smooth;
+}
+#chatBox p {
+  margin: 6px 0;
+}
+.input-row {
+  display: flex;
+  justify-content: center;
+}
+input {
+  padding: 10px;
+  margin: 5px;
+  width: 70%;
+  border-radius: 6px;
+  border: none;
+}
+button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 6px;
+  background: linear-gradient(to right, #00c853, #00e676);
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+button:hover {
+  background: linear-gradient(to right, #00e676, #00ff85);
+}
+
+/* Reminder List */
+#reminderList {
+  list-style: none;
+  padding: 0;
+}
+#reminderList li {
+  background: #fff;
+  color: #000;
+  margin: 5px;
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: 0.2s;
+}
+#reminderList li:hover {
+  transform: scale(1.02);
+  background: #f0f0f0;
+  color: #000;
+}
+#reminderList li button {
+  background: red;
+  font-size: 12px;
+  padding: 3px 6px;
+  border-radius: 4px;
+}
+
+/* Footer */
+footer {
+  padding: 15px;
+  background: rgba(0,0,0,0.3);
+  margin-top: 30px;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}

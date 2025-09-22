@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CareMatrix</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- HEADER -->
+  <header>
+    <h1>🌸 CareMatrix</h1>
+    <p>Your AI-powered health companion</p>
+    <nav>
+      <button onclick="showSection('chatbot')">🤖 Chatbot</button>
+      <button onclick="showSection('symptom')">🩺 Symptom Checker</button>
+      <button onclick="showSection('reminder')">⏰ Reminders</button>
+    </nav>
+  </header>
+
+  <!-- MAIN SECTIONS -->
+  <main>
+    <!-- CHATBOT -->
+    <section id="chatbot" class="hidden">
+      <h2>AI Chatbot</h2>
+      <div id="chatBox"></div>
+      <div class="input-row">
+        <input type="text" id="chatInput" placeholder="Ask me anything...">
+        <button onclick="askChatbot()">Send</button>
+      </div>
+    </section>
+
+    <!-- SYMPTOM CHECKER -->
+    <section id="symptom" class="hidden">
+      <h2>Symptom Checker</h2>
+      <input type="text" id="symptomInput" placeholder="Enter a symptom (e.g., fever)">
+      <button onclick="checkSymptom()">Check</button>
+      <div id="symptomResult"></div>
+    </section>
+
+    <!-- REMINDERS -->
+    <section id="reminder" class="hidden">
+      <h2>Reminders</h2>
+      <div class="input-row">
+        <input type="text" id="reminderInput" placeholder="Enter reminder...">
+        <button onclick="addReminder()">Add</button>
+      </div>
+      <ul id="reminderList"></ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>💙 CareMatrix © 2025</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

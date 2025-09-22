@@ -1,0 +1,5 @@
+{
+  "fever": ["Flu", "Common Cold", "Infection"],
+  "headache": ["Migraine", "Stress", "Tension"],
+  "cough": ["Cold", "Bronchitis", "COVID-19"]
+}
