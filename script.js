@@ -39,10 +39,21 @@ async function askChatbot() {
 
 // ===== Symptom Checker =====
 const symptomData = {
-  fever: ["Flu", "Common Cold", "Infection"],
-  headache: ["Migraine", "Stress", "Dehydration"],
-  cough: ["Bronchitis", "Asthma", "Cold"],
-  stomachache: ["Indigestion", "Food Poisoning"]
+  const symptomData = {
+  fever: ["Flu", "Common Cold", "Infection", "COVID-19", "Malaria", "Dengue"],
+  headache: ["Migraine", "Stress", "Dehydration", "Tension Headache", "Sinus Infection"],
+  cough: ["Bronchitis", "Asthma", "Cold", "Pneumonia", "COVID-19", "Allergies"],
+  stomachache: ["Indigestion", "Food Poisoning", "Gastritis", "Ulcer", "Appendicitis"],
+  fatigue: ["Anemia", "Sleep Deprivation", "Hypothyroidism", "Stress", "Diabetes"],
+  nausea: ["Food Poisoning", "Pregnancy", "Gastritis", "Migraine", "Motion Sickness"],
+  dizziness: ["Low Blood Pressure", "Dehydration", "Vertigo", "Inner Ear Infection", "Hypoglycemia"],
+  soreThroat: ["Common Cold", "Strep Throat", "Allergies", "Flu", "Tonsillitis"],
+  runnyNose: ["Allergies", "Cold", "Flu", "Sinus Infection", "COVID-19"],
+  chestPain: ["Heartburn", "Angina", "Heart Attack", "Muscle Strain", "Pneumonia"],
+  shortnessOfBreath: ["Asthma", "COVID-19", "Pneumonia", "COPD", "Heart Disease"],
+  diarrhea: ["Food Poisoning", "Infection", "IBS", "Lactose Intolerance", "Medication Side Effects"]
+};
+
 };
 
 function checkSymptom() {
@@ -84,3 +95,4 @@ function deleteReminder(index) {
 }
 
 window.onload = loadReminders;
+
