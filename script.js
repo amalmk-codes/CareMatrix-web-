@@ -90,3 +90,4 @@ function deleteReminder(index) {
 }
 
 window.onload = loadReminders;
+
