@@ -3,7 +3,7 @@ function showSection(id) {
   document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
-const API_KEY = "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"; // ← Replace with your actual key
+const API_KEY="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"; // ← Replace your actual key
 
 async function askChatbot() {
   const input = document.getElementById("chatInput").value.trim();
@@ -90,4 +90,5 @@ function deleteReminder(index) {
 }
 
 window.onload = loadReminders;
+
 
