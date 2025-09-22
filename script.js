@@ -5,7 +5,7 @@ function showSection(id) {
 }
 
 // ===== AI Chatbot (OpenAI API) =====
-const API_KEY = "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"; // Replace with your OpenAI API Key
+const API_KEY = "YOUR_OPENAI_API_KEY"; // Replace with your OpenAI API Key
 
 async function askChatbot() {
   const input = document.getElementById("chatInput").value;
@@ -37,7 +37,7 @@ async function askChatbot() {
   }
 }
 
-// ===== Symptom Checker ====
+// ===== Symptom Checker =====
 const symptomData = {
   fever: [
     "Flu",
@@ -127,10 +127,6 @@ const symptomData = {
   ]
 };
 
-};
-
-};
-
 function checkSymptom() {
   const input = document.getElementById("symptomInput").value.toLowerCase().trim();
   const result = symptomData[input] || ["No conditions found"];
@@ -170,6 +166,3 @@ function deleteReminder(index) {
 }
 
 window.onload = loadReminders;
-
-
-
