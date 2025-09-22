@@ -3,7 +3,10 @@ function showSection(id) {
   document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
-const API_KEY="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"; // ← Replace your actual key
+
+// ===== AI Chatbot (OpenAI API) =====
+// Replace YOUR_OPENAI_KEY with your actual OpenAI API key
+const API_KEY = "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";
 
 async function askChatbot() {
   const input = document.getElementById("chatInput").value.trim();
@@ -27,9 +30,16 @@ async function askChatbot() {
     });
 
     const data = await response.json();
-    const reply = data.choices[0].message.content;
-    chatBox.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
+
+    if (data.choices && data.choices.length > 0 && data.choices[0].message) {
+      const reply = data.choices[0].message.content;
+      chatBox.innerHTML += `<p><b>Bot:</b> ${reply}</p>`;
+    } else {
+      chatBox.innerHTML += `<p><b>Bot:</b> ❌ No response from API</p>`;
+    }
+
     chatBox.scrollTop = chatBox.scrollHeight;
+
   } catch (err) {
     chatBox.innerHTML += `<p><b>Bot:</b> ❌ Error: ${err.message}</p>`;
   }
@@ -37,18 +47,92 @@ async function askChatbot() {
 
 // ===== Symptom Checker =====
 const symptomData = {
-  fever: ["Flu","Common Cold","Infection","COVID-19","Malaria","Dengue"],
-  headache: ["Migraine","Stress","Dehydration","Tension Headache","Sinus Infection"],
-  cough: ["Bronchitis","Asthma","Cold","Pneumonia","COVID-19","Allergies"],
-  stomachache: ["Indigestion","Food Poisoning","Gastritis","Ulcer","Appendicitis"],
-  fatigue: ["Anemia","Sleep Deprivation","Hypothyroidism","Stress","Diabetes"],
-  nausea: ["Food Poisoning","Pregnancy","Gastritis","Migraine","Motion Sickness"],
-  dizziness: ["Low Blood Pressure","Dehydration","Vertigo","Inner Ear Infection","Hypoglycemia"],
-  soreThroat: ["Common Cold","Strep Throat","Allergies","Flu","Tonsillitis"],
-  runnyNose: ["Allergies","Cold","Flu","Sinus Infection","COVID-19"],
-  chestPain: ["Heartburn","Angina","Heart Attack","Muscle Strain","Pneumonia"],
-  shortnessOfBreath: ["Asthma","COVID-19","Pneumonia","COPD","Heart Disease"],
-  diarrhea: ["Food Poisoning","Infection","IBS","Lactose Intolerance","Medication Side Effects"]
+  fever: [
+    "Flu",
+    "Common Cold",
+    "Infection",
+    "COVID-19",
+    "Malaria",
+    "Dengue"
+  ],
+  headache: [
+    "Migraine",
+    "Stress",
+    "Dehydration",
+    "Tension Headache",
+    "Sinus Infection"
+  ],
+  cough: [
+    "Bronchitis",
+    "Asthma",
+    "Cold",
+    "Pneumonia",
+    "COVID-19",
+    "Allergies"
+  ],
+  stomachache: [
+    "Indigestion",
+    "Food Poisoning",
+    "Gastritis",
+    "Ulcer",
+    "Appendicitis"
+  ],
+  fatigue: [
+    "Anemia",
+    "Sleep Deprivation",
+    "Hypothyroidism",
+    "Stress",
+    "Diabetes"
+  ],
+  nausea: [
+    "Food Poisoning",
+    "Pregnancy",
+    "Gastritis",
+    "Migraine",
+    "Motion Sickness"
+  ],
+  dizziness: [
+    "Low Blood Pressure",
+    "Dehydration",
+    "Vertigo",
+    "Inner Ear Infection",
+    "Hypoglycemia"
+  ],
+  soreThroat: [
+    "Common Cold",
+    "Strep Throat",
+    "Allergies",
+    "Flu",
+    "Tonsillitis"
+  ],
+  runnyNose: [
+    "Allergies",
+    "Cold",
+    "Flu",
+    "Sinus Infection",
+    "COVID-19"
+  ],
+  chestPain: [
+    "Heartburn",
+    "Angina",
+    "Heart Attack",
+    "Muscle Strain",
+    "Pneumonia"
+  ],
+  shortnessOfBreath: [
+    "Asthma",
+    "COVID-19",
+    "Pneumonia",
+    "COPD",
+    "Heart Disease"
+  ],
+  diarrhea: [
+    "Food Poisoning",
+    "Infection",
+    "IBS",
+    "Lactose Intolerance",
+    "Medication Side Effects"
+  ]
 };
 
 function checkSymptom() {
@@ -58,7 +142,7 @@ function checkSymptom() {
     `<p>Possible conditions: ${result.join(", ")}</p>`;
 }
 
-// ===== Reminders =====
+// ===== Reminders (with localStorage) =====
 function loadReminders() {
   const saved = JSON.parse(localStorage.getItem("reminders")) || [];
   const list = document.getElementById("reminderList");
@@ -89,6 +173,5 @@ function deleteReminder(index) {
   loadReminders();
 }
 
+// Load reminders on page load
 window.onload = loadReminders;
-
-
