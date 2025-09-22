@@ -3,12 +3,7 @@ function showSection(id) {
   document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
-
-// ===== AI Chatbot =====
-// For security, it's recommended to use a backend proxy to call OpenAI API.
-// You can put your key here temporarily for testing.
-const API_KEY = "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";
-
+const API_KEY = "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";
 async function askChatbot() {
   const input = document.getElementById("chatInput").value;
   if (!input) return;
@@ -94,3 +89,4 @@ function deleteReminder(index) {
 }
 
 window.onload = loadReminders;
+
