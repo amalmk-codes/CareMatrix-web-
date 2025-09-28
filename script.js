@@ -3,11 +3,6 @@ function showSection(id) {
   document.querySelectorAll("section").forEach(sec => sec.classList.add("hidden"));
   document.getElementById(id).classList.remove("hidden");
 }
-
-// ===== AI Chatbot (OpenAI API) =====
-// Replace YOUR_OPENAI_KEY with your actual OpenAI API key
-const API_KEY = "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";
-
 async function askChatbot() {
   const input = document.getElementById("chatInput").value.trim();
   if (!input) return;
@@ -175,3 +170,4 @@ function deleteReminder(index) {
 
 // Load reminders on page load
 window.onload = loadReminders;
+
